@@ -1,0 +1,106 @@
+@keyframes shrink-animation {
+  0% {
+    transform: scaleY(1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    transform: scaleY(0.2);
+  }
+}
+
+@keyframes rotate-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+
+.container {
+  position: relative;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    #1a73e8,
+    #ea4335,
+    #fbbc05,
+    #34a853,
+    #b739a9,
+    #202124
+  );
+  z-index: -1;
+  animation: rotate-animation 5s infinite;
+  animation-timing-function: linear;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  height: 95%;
+  width: 95%;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.load {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 160px;
+  width: 160px;
+  z-index: 1000;
+}
+
+.load__rectangle {
+  width: 10px;
+  height: 90px;
+  /* transform-origin: bottom center; */
+}
+
+.load__rectangle:nth-child(1) {
+  background-color: #1a73e8;
+  animation: shrink-animation 1s ease-in-out infinite backwards;
+  animation-direction: alternate;
+}
+.load__rectangle:nth-child(2) {
+  background-color: #ea4335;
+  animation: shrink-animation 1s ease-in-out 0.2s infinite backwards;
+  animation-direction: alternate;
+}
+
+.load__rectangle:nth-child(3) {
+  background-color: #fbbc05;
+  animation: shrink-animation 1s ease-in-out 0.4s infinite backwards;
+  animation-direction: alternate;
+}
+
+.load__rectangle:nth-child(4) {
+  background-color: #34a853;
+  animation: shrink-animation 1s ease-in-out 0.6s infinite backwards;
+  animation-direction: alternate;
+}
+
+.load__rectangle:nth-child(5) {
+  background-color: #b739a9;
+  animation: shrink-animation 1s ease-in-out 0.8s infinite backwards;
+  animation-direction: alternate;
+}
+
+.load__rectangle:nth-child(6) {
+  background-color: #202124;
+  animation: shrink-animation 1s ease-in-out 1s infinite backwards;
+  animation-direction: alternate;
+}
